@@ -52,6 +52,7 @@ func init() {
 	viper.AutomaticEnv()
 	if err := viper.ReadInConfig(); err != nil {
 		fmt.Println(`expected smsdos.yaml containing "from" numbers(twilio) and "to" numbers(targets) in $PWD`, err.Error())
+		os.Exit(1)
 	}
 	fmt.Printf("using config file: %s\n", viper.ConfigFileUsed())
 }

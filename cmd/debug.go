@@ -15,6 +15,7 @@
 package cmd
 
 import (
+	"fmt"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -24,7 +25,13 @@ var debugCmd = &cobra.Command{
 	Use:   "debug",
 	Short: "debug current config file",
 	Run: func(cmd *cobra.Command, args []string) {
-		viper.Debug()
+		fmt.Println("------------------------------------------------")
+		fmt.Println("DEBUG")
+		fmt.Println("key| type| description|")
+		fmt.Println("------------------------------------------------")
+		fmt.Printf("|send|int| sending this many texts to each target:%v\n", viper.GetInt("send"))
+		fmt.Printf("|from|[]string| randomly sending texts from these numbers:%v\n", viper.GetStringSlice("from"))
+		fmt.Printf("|to|[]string| sending texts to these targets:%v\n", viper.GetStringSlice("to"))
 	},
 }
 

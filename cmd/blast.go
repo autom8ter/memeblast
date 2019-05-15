@@ -15,20 +15,41 @@
 package cmd
 
 import (
+	"fmt"
 	"github.com/autom8ter/smsdos/cats"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"os"
 )
 
 // blastCmd represents the blast command
 var blastCmd = &cobra.Command{
 	Use:   "cats",
 	Short: "start an cats sms blast",
+	PreRun: func(cmd *cobra.Command, args []string) {
+		if viper.GetString("twilio_account") == "" {
+			fmt.Println(`expected "twilio_account" containing your twilio account number  in smsdos.yaml file`)
+			os.Exit(1)
+		}
+		if viper.GetString("twilio_key") == "" {
+			fmt.Println(`expected "twilio_key" containing your twilio api key in smsdos.yaml file`)
+			os.Exit(1)
+		}
+		if len(viper.GetStringSlice("from")) == 0 {
+			fmt.Println(`expected "from" containing an array of your twilio phone numbers in smsdos.yaml file`)
+			os.Exit(1)
+		}
+		if len(viper.GetStringSlice("to")) == 0 {
+			fmt.Println(`expected "to" containing an array of phone numbers in smsdos.yaml file`)
+			os.Exit(1)
+		}
+		if viper.GetInt("send") == 0 {
+			fmt.Println(`"send" not found int smsdos.yaml`, "setting default send to 1")
+			viper.Set("send", 1)
+		}
+	},
 	Run: func(cmd *cobra.Command, args []string) {
 		send := viper.GetInt("send")
-		if send == 0 {
-			send = 1
-		}
 		for x := 0; x < send; x++ {
 			cats.Blast().Attack()
 		}
