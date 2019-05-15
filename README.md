@@ -4,8 +4,6 @@ Annoy your friends by blasting them with silly sms messages
 
 **FOR EXPERIMENTATION PURPOSES ONLY**
 
-**NOT FOR USE BY HUMANS**
-
 ## Requirements
 - a twilio account with active numbers
 - friends that have phone numbers
