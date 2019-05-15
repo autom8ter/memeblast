@@ -16,43 +16,26 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/autom8ter/smsdos/cats"
+	"github.com/autom8ter/smsdos/messages"
 	"github.com/spf13/cobra"
-	"github.com/spf13/viper"
 	"os"
 )
 
+var blast *messages.Blast
+
 // blastCmd represents the blast command
 var blastCmd = &cobra.Command{
-	Use:   "cats",
-	Short: "start an cats sms blast",
+	Use:   "blast",
+	Short: "start an sms blast (default: cat memes)",
 	PreRun: func(cmd *cobra.Command, args []string) {
-		if viper.GetString("twilio_account") == "" {
-			fmt.Println(`expected "twilio_account" containing your twilio account number  in smsdos.yaml file`)
+		blast = messages.NewBlast()
+		if err := blast.Validate();err != nil {
+			fmt.Println(err.Error())
 			os.Exit(1)
-		}
-		if viper.GetString("twilio_key") == "" {
-			fmt.Println(`expected "twilio_key" containing your twilio api key in smsdos.yaml file`)
-			os.Exit(1)
-		}
-		if len(viper.GetStringSlice("from")) == 0 {
-			fmt.Println(`expected "from" containing an array of your twilio phone numbers in smsdos.yaml file`)
-			os.Exit(1)
-		}
-		if len(viper.GetStringSlice("to")) == 0 {
-			fmt.Println(`expected "to" containing an array of phone numbers in smsdos.yaml file`)
-			os.Exit(1)
-		}
-		if viper.GetInt("send") == 0 {
-			fmt.Println(`"send" not found int smsdos.yaml`, "setting default send to 1")
-			viper.Set("send", 1)
 		}
 	},
 	Run: func(cmd *cobra.Command, args []string) {
-		send := viper.GetInt("send")
-		for x := 0; x < send; x++ {
-			cats.Blast().Attack()
-		}
+		blast.Attack()
 	},
 }
 
