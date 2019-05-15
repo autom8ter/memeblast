@@ -40,12 +40,12 @@ targets:
   - "+130387XXX6"
 
 messages:
-  when the cats are away the mice will play: "https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Facidcow.com%2Fpics%2F20100607%2Fugly_cats_22.jpg&f=1"
+  when the cats are away the mice will play: "http://1.bp.blogspot.com/_PG9h1CS1dfo/TAzK0FRyGpI/AAAAAAAAMYQ/yYo6lwDJ1o4/s400/ugly_cats_21.jpg"
 ```
 
 Text received:
 
-![]( "https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Facidcow.com%2Fpics%2F20100607%2Fugly_cats_22.jpg&f=1")
+![]( "http://1.bp.blogspot.com/_PG9h1CS1dfo/TAzK0FRyGpI/AAAAAAAAMYQ/yYo6lwDJ1o4/s400/ugly_cats_21.jpg")
 
 when the cats are away the mice will play
 
