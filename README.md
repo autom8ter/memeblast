@@ -9,7 +9,7 @@ Annoy your friends by blasting them with silly sms messages
 - friends that have phone numbers
 - a config file named smsdos.yaml in $PWD 
 
-## Example Config
+## Example Config ($PWD/smsdos.yaml)
 
 ```text
 ## number of texts to send to each number(to) from a randomized number
