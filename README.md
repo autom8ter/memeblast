@@ -4,6 +4,8 @@ Annoy your friends by blasting them with silly sms messages
 
 **FOR EXPERIMENTATION PURPOSES ONLY**
 
+  go get github.com/autom8ter/smsdos
+
 ## Requirements
 - a twilio account with active numbers
 - friends that have phone numbers
