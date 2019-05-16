@@ -1,0 +1,29 @@
+## number of texts to send to each number(to) from a randomized number
+count: 1
+
+## your twilio account number
+twilio_account: "XXXXXXXXXXX"
+
+## your twilio account api key
+twilio_key: "XXXXXXXXXXX"
+
+## from is a string array of Twilio numbers to send from(you must own them)
+## note: smsdos chooses which number to send from randomly
+from:
+  - "+17205839735"
+  - "+17207281921"
+  - "+17206051393"
+  - "+17207281524"
+  - "+17209032013"
+  - "+17207091354"
+  - "+17207261600"
+  - "+17207280582"
+  - "+17205131827"
+  - "+17207280986"
+
+## targets is a string array of numbers to send to
+targets:
+  - "+13038752836"
+
+messages:
+  when the cats are away the mice will play: "http://1.bp.blogspot.com/_PG9h1CS1dfo/TAzK0FRyGpI/AAAAAAAAMYQ/yYo6lwDJ1o4/s400/ugly_cats_21.jpg"

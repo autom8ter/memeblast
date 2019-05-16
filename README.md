@@ -1,17 +1,17 @@
-# SMSDOS
+# MEMEBLAST
 
-Annoy your friends by blasting them with silly sms messages
+Send sms blasts of memes from a randomized set of phone numbers
 
 **FOR EXPERIMENTATION PURPOSES ONLY**
 
-    go get github.com/autom8ter/smsdos
+    go get github.com/autom8ter/memeblast
 
 ## Requirements
 - a twilio account with active numbers
-- friends that have phone numbers
-- a config file named smsdos.yaml in $PWD 
+- target phone numbers
+- a config file named memeblast.yaml in $PWD 
 
-## Example Config ($PWD/smsdos.yaml)
+## Example Config ($PWD/memeblast.yaml)
 
 ```text
 ## number of texts to send to each number(to) from a randomized number
@@ -24,7 +24,7 @@ twilio_account: "XXXXXXXXXXX"
 twilio_key: "XXXXXXXXXXX"
 
 ## from is a string array of Twilio numbers to send from(you must own them)
-## note: smsdos chooses which number to send from randomly
+## note: memeblast chooses which number to send from randomly
 from:
   - "+1XXX8397357"
   - "+172XXX281921"
@@ -37,7 +37,7 @@ from:
   - "+17205XXX182"
   - "+17207XXX986"
 
-## targets is a string array of numbers to send to. smsdos will send the same number of texts to each listed target.
+## targets is a string array of numbers to send to. memeblast will send the same number of texts to each listed target.
 targets:
   - "+130387XXX6"
 
@@ -53,22 +53,26 @@ when the cats are away the mice will play
 
 
 
-## Usage `smsdos`
+## Usage `memeblast`
 
 ```text
- ______   _________   ______   _____    ______   ______ 
-/ |      | | | | | \ / |      | | \ \  / |  | \ / |     
-'------. | | | | | | '------. | |  | | | |  | | '------.
- ____|_/ |_| |_| |_|  ____|_/ |_|_/_/  \_|__|_/  ____|_/
-                                                        
-Annoy your friends by blasting them with silly sms messages
+using config file: ./memeblast.yaml
+
+------------------------------------------------------------
+ __  __  ____  __  __  ____  ____  __      __    ___  ____ 
+(  \/  )( ___)(  \/  )( ___)(  _ \(  )    /__\  / __)(_  _)
+ )    (  )__)  )    (  )__)  ) _ < )(__  /(__)\ \__ \  )(  
+(_/\/\_)(____)(_/\/\_)(____)(____/(____)(__)(__)(___/ (__) 
+------------------------------------------------------------ 
+Send sms blasts of memes from a randomized set of phonenumbers
 
 (FOR EXPERIMENTATION PURPOSES ONLY)
 (NOT FOR USE BY HUMANS)
 SMS Laws: https://www.bulksms.com/resources/regulations/requirements-for-marketing-using-sms-messaging-in-the-usa.htm
+------------------------------------------------------------
 
 Usage:
-  smsdos [command]
+  memeblast [command]
 
 Available Commands:
   blast       start an sms blast (default: cat memes)
@@ -76,9 +80,10 @@ Available Commands:
   help        Help about any command
 
 Flags:
-  -h, --help   help for smsdos
+  -h, --help   help for memeblast
 
-Use "smsdos [command] --help" for more information about a command.
+Use "memeblast [command] --help" for more information about a command.
+
 
 ```
 

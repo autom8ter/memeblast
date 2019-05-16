@@ -14,7 +14,7 @@
 
 package main
 
-import "github.com/autom8ter/smsdos/cmd"
+import "github.com/autom8ter/memeblast/cmd"
 
 func main() {
 	cmd.Execute()

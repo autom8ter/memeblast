@@ -16,7 +16,7 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/autom8ter/smsdos/messages"
+	"github.com/autom8ter/memeblast/messages"
 	"github.com/spf13/cobra"
 	"os"
 )
@@ -29,7 +29,7 @@ var blastCmd = &cobra.Command{
 	Short: "start an sms blast (default: cat memes)",
 	PreRun: func(cmd *cobra.Command, args []string) {
 		blast = messages.NewBlast()
-		if err := blast.Validate();err != nil {
+		if err := blast.Validate(); err != nil {
 			fmt.Println(err.Error())
 			os.Exit(1)
 		}

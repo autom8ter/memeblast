@@ -2,8 +2,8 @@ package messages
 
 import (
 	"fmt"
+	"github.com/autom8ter/memeblast/cats"
 	"github.com/autom8ter/objectify"
-	"github.com/autom8ter/smsdos/cats"
 	"github.com/sfreiberg/gotwilio"
 	"github.com/spf13/viper"
 	"math/rand"
@@ -17,12 +17,12 @@ func init() {
 var tool = objectify.Default()
 
 type Blast struct {
-	TwilioAccount string `validate:"required"`
-	TwilioKey string `validate:"required"`
-	Count 		int `validate:"required"`
-	Messages 	map[string]string `validate:"required"`
-	From 		[]string `validate:"required"`
-	Targets 			[]string `validate:"required"`
+	TwilioAccount string            `validate:"required"`
+	TwilioKey     string            `validate:"required"`
+	Count         int               `validate:"required"`
+	Messages      map[string]string `validate:"required"`
+	From          []string          `validate:"required"`
+	Targets       []string          `validate:"required"`
 }
 
 func NewBlast() *Blast {
@@ -32,14 +32,14 @@ func NewBlast() *Blast {
 		TwilioAccount: viper.GetString("twilio_account"),
 		TwilioKey:     viper.GetString("twilio_key"),
 		Count:         viper.GetInt("count"),
-		Messages:       viper.GetStringMapString("messages"),
-		Targets:            viper.GetStringSlice("targets"),
-		From:           viper.GetStringSlice("from"),
+		Messages:      viper.GetStringMapString("messages"),
+		Targets:       viper.GetStringSlice("targets"),
+		From:          viper.GetStringSlice("from"),
 	}
 }
 
 func (b *Blast) Validate() error {
-	return tool.WrapErr(tool.Validate(b), "place an smsdos.yaml config in $PWD\n")
+	return tool.WrapErr(tool.Validate(b), "place an memeblast.yaml config in $PWD\n")
 }
 
 func (b *Blast) Twilio() *gotwilio.Twilio {
@@ -55,7 +55,7 @@ func (b *Blast) AppendMessages(msgs map[string]string) {
 		b.Messages = make(map[string]string)
 	}
 	for k, v := range msgs {
-		b.Messages[k]=v
+		b.Messages[k] = v
 	}
 }
 
@@ -81,7 +81,7 @@ func (b *Blast) Once(number string) error {
 func (b *Blast) Attack() {
 	for x := 0; x < b.Count; x++ {
 		for _, number := range b.Targets {
-			err :=  b.Once(number)
+			err := b.Once(number)
 			if err != nil {
 				fmt.Println("error", b.Once(number).Error())
 			}

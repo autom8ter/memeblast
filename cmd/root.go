@@ -23,18 +23,20 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use: "smsdos",
+	Use: "memeblast",
 	Long: `
- ______   _________   ______   _____    ______   ______ 
-/ |      | | | | | \ / |      | | \ \  / |  | \ / |     
-'------. | | | | | | '------. | |  | | | |  | | '------.
- ____|_/ |_| |_| |_|  ____|_/ |_|_/_/  \_|__|_/  ____|_/
-                                                        
-Annoy your friends by blasting them with silly sms messages
+------------------------------------------------------------
+ __  __  ____  __  __  ____  ____  __      __    ___  ____ 
+(  \/  )( ___)(  \/  )( ___)(  _ \(  )    /__\  / __)(_  _)
+ )    (  )__)  )    (  )__)  ) _ < )(__  /(__)\ \__ \  )(  
+(_/\/\_)(____)(_/\/\_)(____)(____/(____)(__)(__)(___/ (__) 
+------------------------------------------------------------ 
+Send sms blasts of memes from a randomized set of phonenumbers
 
 (FOR EXPERIMENTATION PURPOSES ONLY)
 (NOT FOR USE BY HUMANS)
 SMS Laws: https://www.bulksms.com/resources/regulations/requirements-for-marketing-using-sms-messaging-in-the-usa.htm
+------------------------------------------------------------
 `,
 }
 
@@ -48,10 +50,10 @@ func Execute() {
 }
 
 func init() {
-	viper.SetConfigFile("./smsdos.yaml")
+	viper.SetConfigFile("./memeblast.yaml")
 	viper.AutomaticEnv()
 	if err := viper.ReadInConfig(); err != nil {
-		fmt.Println(`expected smsdos.yaml containing "from" numbers(twilio) and "to" numbers(targets) in $PWD`, err.Error())
+		fmt.Println(`expected memeblast.yaml containing "from" numbers(twilio) and "to" numbers(targets) in $PWD`, err.Error())
 	} else {
 		fmt.Printf("using config file: %s\n", viper.ConfigFileUsed())
 	}
