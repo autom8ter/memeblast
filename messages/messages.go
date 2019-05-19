@@ -83,7 +83,7 @@ func (b *Blast) Attack() {
 		for _, number := range b.Targets {
 			err := b.Once(number)
 			if err != nil {
-				fmt.Println("error", b.Once(number).Error())
+				fmt.Println("error", err.Error())
 			}
 		}
 	}
