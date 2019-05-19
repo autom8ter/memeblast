@@ -41,6 +41,7 @@ from:
 targets:
   - "+130387XXX6"
 
+## messages is a map of the text body to send : meme(img) url
 messages:
   when the cats are away the mice will play: "http://1.bp.blogspot.com/_PG9h1CS1dfo/TAzK0FRyGpI/AAAAAAAAMYQ/yYo6lwDJ1o4/s400/ugly_cats_21.jpg"
 ```
